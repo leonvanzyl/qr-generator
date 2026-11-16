@@ -91,11 +91,17 @@ npx shadcn@latest add <component>
 ```
 
 Components are added to `src/components/ui/`. Import them with the `@/` alias,
-for example `import { Card } from '@/components/ui/card'`.
+for example `import { Card } from '@/components/ui/card'`. If a newly added
+component imports `cn` from `'cn'`, change it to `'@/lib/utils'` so every
+component goes through the shared helper.
 
 ## Notes
 
 - **Dark mode** follows the operating system setting (`prefers-color-scheme`).
+- **`cn()` comes from the [`cn`](https://github.com/shadcn-ui/cn) package**,
+  shadcn's own drop-in replacement for `clsx` + `tailwind-merge`, which is what
+  `shadcn init` installs today. `src/lib/utils.ts` re-exports it, so swapping
+  the implementation is a one-file change.
 - **TypeScript is pinned to 6.0.x.** TypeScript 7 is out, but `typescript-eslint`
   does not support it yet (its peer range is `<6.1.0`). Move to TypeScript 7
   once `typescript-eslint` supports it.
