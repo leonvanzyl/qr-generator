@@ -4,10 +4,34 @@
 # Dependencies
 node_modules/
 
+# Build output
+dist/
+dist-ssr/
+*.local
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
 # Environment files
 .env
 .env.*
 !.env.example
+
+# Editor files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
 # OS files
 .DS_Store
